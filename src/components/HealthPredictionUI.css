@@ -1,0 +1,47 @@
+/* src/components/HealthPredictionUI.css */
+.health-prediction {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 500px;
+  margin: auto;
+}
+
+.health-prediction h2 {
+  color: #ff69b4;
+}
+
+form label {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+form input {
+  padding: 10px;
+  margin-top: 5px;
+  border: none;
+  border-radius: 4px;
+  outline: none;
+  background: #00ffff;
+}
+
+form button {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  background: #ff69b4;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+form button:hover {
+  background: #ff1493;
+}
+
+.prediction-result {
+  margin-top: 20px;
+}
