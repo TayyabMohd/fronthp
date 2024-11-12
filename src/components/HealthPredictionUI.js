@@ -1,7 +1,8 @@
+// src/components/HealthPredictionUI.js
 import React, { useState } from "react";
-
+import axios from "axios"; // Import axios for making HTTP requests
+import Button from "@mui/material/Button";
 function SymptomForm() {
-  // State to keep track of selected symptoms and other input
   const [formData, setFormData] = useState({
     cold: false,
     fever: false,
@@ -10,7 +11,6 @@ function SymptomForm() {
 
   const [submittedData, setSubmittedData] = useState(null);
 
-  // Handler to toggle button states
   const handleSymptomClick = (symptom) => {
     setFormData((prevData) => ({
       ...prevData,
@@ -18,7 +18,6 @@ function SymptomForm() {
     }));
   };
 
-  // Handler for text input
   const handleInputChange = (event) => {
     setFormData({
       ...formData,
@@ -26,10 +25,18 @@ function SymptomForm() {
     });
   };
 
-  // Handler for form submission
-  const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent page reload
-    setSubmittedData(formData); // Set the submitted data
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post(
+        "http://localhost:5000/submit-symptoms",
+        formData
+      );
+      setSubmittedData(response.data); // Update with response data from server
+    } catch (error) {
+      console.error("Error sending data to server:", error);
+    }
   };
 
   return (
@@ -37,14 +44,14 @@ function SymptomForm() {
       <form onSubmit={handleSubmit}>
         <h2>Select Symptoms</h2>
 
-        {/* Buttons for cold and fever */}
-        <button
+        <Button
           type="button"
           onClick={() => handleSymptomClick("cold")}
-          style={{ backgroundColor: formData.cold ? "lightgreen" : "" }}
+          // style={{ backgroundColor: formData.cold ? "lightgreen" : "" }}
+          variant="contained"
         >
           Cold
-        </button>
+        </Button>
 
         <button
           type="button"
@@ -56,7 +63,6 @@ function SymptomForm() {
 
         <br />
 
-        {/* Input for other symptoms */}
         <label>
           Other Symptoms:
           <input
@@ -71,7 +77,6 @@ function SymptomForm() {
         <button type="submit">Submit</button>
       </form>
 
-      {/* Display JSON data after submission */}
       {submittedData && (
         <div>
           <h3>Submitted Data:</h3>
