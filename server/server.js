@@ -13,8 +13,8 @@ let latestSubmittedData = null; // Store the latest submitted data
 
 // Route to handle POST request
 app.post("/submit-symptoms", (req, res) => {
-  const { cold, fever, otherSymptom } = req.body;
-  latestSubmittedData = { cold, fever, otherSymptom }; // Save submitted data
+  // Use req.body as it is, as the frontend now only sends selected symptoms
+  latestSubmittedData = req.body;
 
   console.log("Received symptoms data:", latestSubmittedData);
 
@@ -28,7 +28,6 @@ app.post("/submit-symptoms", (req, res) => {
 app.get("/", (req, res) => {
   if (latestSubmittedData) {
     res.send(`
-      <h1>Latest Submitted Symptoms</h1>
       <pre>${JSON.stringify(latestSubmittedData, null, 2)}</pre>
     `);
   } else {

@@ -1,47 +1,86 @@
 /* src/components/HealthPredictionUI.css */
-.health-prediction {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 20px;
-  border-radius: 8px;
+
+.health-prediction h2,
+.health-prediction h3 {
+  color: #00ffff; /* Hot pink color for headings */
+}
+
+.symptom-buttons {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-bottom: 15px;
+}
+
+.symptom-button {
+  background-color: #e0e0e0;
+  color: #000;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  transition: background 0.3s ease;
+  cursor: pointer;
+}
+
+.symptom-button.active {
+  background-color: #00bcd4; /* Hot pink for active buttons */
   color: #fff;
-  max-width: 500px;
-  margin: auto;
 }
 
-.health-prediction h2 {
-  color: #ff69b4;
+.symptom-button:hover {
+  background-color: #009688; /* Cyan for hover effect */
 }
 
-form label {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 10px;
-}
-
-form input {
+input {
   padding: 10px;
   margin-top: 5px;
   border: none;
   border-radius: 4px;
   outline: none;
-  background: #00ffff;
+  background: #fff; /* Cyan color for input background */
+  color: #000;
 }
 
-form button {
+.submit-button {
   padding: 12px 20px;
+  margin-left: 12px;
   border: none;
   border-radius: 5px;
-  background: #ff69b4;
+  background: #ff69b4; /* Hot pink for submit button */
   color: #fff;
   font-weight: bold;
   cursor: pointer;
   transition: background 0.3s ease;
 }
 
-form button:hover {
+.submit-button:hover {
   background: #ff1493;
 }
 
+.health-prediction-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 20px; /* Space between form and result */
+  padding: 20px;
+}
+
+.health-prediction {
+  background: rgba(255, 255, 255, 0);
+  padding: 20px;
+  border-radius: 8px;
+  color: #fff;
+  max-width: 500px;
+  width: 100%;
+}
+
 .prediction-result {
-  margin-top: 20px;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  color: #000;
+  max-width: 300px;
+  width: 100%;
+  text-align: center;
 }

@@ -1,8 +1,8 @@
 import React from "react";
-//import { theme } from "./theme";
 import "./App.css";
 import HealthPredictionUI from "./components/HealthPredictionUI";
 import Spline from "@splinetool/react-spline";
+import TypingText from "./components/TypingText"; // Import TypingText component
 
 function App() {
   return (
@@ -13,8 +13,15 @@ function App() {
       </div>
 
       <header className="App-header">
-        <h1>Health Prediction Tool</h1>
-        <p>Powered by Advanced ML Predictions</p>
+        <h1 className="doto-styles">
+          <TypingText text="How can we help you?" speed={100} />
+        </h1>
+        <p className="doto-styles">
+          <TypingText
+            text="Type your symptoms and we will find what you're facing"
+            speed={50}
+          />
+        </p>
       </header>
 
       <main>
