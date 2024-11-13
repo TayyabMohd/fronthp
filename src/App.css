@@ -33,10 +33,18 @@ main {
   justify-content: center;
 }
 
-.doto-styles {
+.doto-styles,
+.doto {
   font-family: "Doto", sans-serif;
   font-optical-sizing: auto;
-  font-weight: 100;
+  font-weight: 600; /* Adjust weight as needed */
   font-style: normal;
   font-variation-settings: "ROND" 0;
+}
+
+.doto-styles {
+  font-size: 55px;
+}
+.doto {
+  font-size: 25px;
 }

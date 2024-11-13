@@ -1,3 +1,4 @@
+// App.js
 import React from "react";
 import "./App.css";
 import HealthPredictionUI from "./components/HealthPredictionUI";
@@ -16,11 +17,8 @@ function App() {
         <h1 className="doto-styles">
           <TypingText text="How can we help you?" speed={100} />
         </h1>
-        <p className="doto-styles">
-          <TypingText
-            text="Type your symptoms and we will find what you're facing"
-            speed={50}
-          />
+        <p className="doto">
+          Type your symptoms and we will find what you're facing
         </p>
       </header>
 
